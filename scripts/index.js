@@ -3,15 +3,12 @@ const startButtomLm = document.querySelector('.increase');
 const resetButtomLm = document.querySelector('.reset');
 const counterTextLm = document.querySelector('.js-counter');
 const tabContainerLm = document.querySelector('.tab-container');
+const navButtonLm = document.querySelector('.menu-button');
+const navBarLm = document.querySelector('.menu-div');
 
 const historyList = [];
 
-startButtomLm.addEventListener('click', ()=> {
-    increase();
-});
-resetButtomLm.addEventListener('click', ()=> {
-    clear();
-});
+
 
 function clear(){
     counterTextLm.innerHTML = '0';
@@ -41,4 +38,24 @@ function increase(){
     //    listTextLm.innerHTML = historyList;
 
 }
+
+function showNav(){
+    navBarLm.classList.add('show-nav');
+//        navBarLm.style.display = "none";
+
+}
+
+
+startButtomLm.addEventListener('click', ()=> {
+    increase();
+});
+
+resetButtomLm.addEventListener('click', ()=> {
+    clear();
+});
+
+navButtonLm.addEventListener('click',()=> {
+    showNav();
+    document.alert('test');
+});
 

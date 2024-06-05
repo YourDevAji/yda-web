@@ -4,6 +4,7 @@ const resetButtomLm = document.querySelector('.reset');
 const counterTextLm = document.querySelector('.js-counter');
 const tabContainerLm = document.querySelector('.tab-container');
 const navButtonLm = document.querySelector('.menu-button');
+const cancelNavButtonLm = document.querySelector('.cancel-menu');
 const navBarLm = document.querySelector('.menu-div');
 
 const historyList = [];
@@ -41,21 +42,26 @@ function increase(){
 
 function showNav(){
     navBarLm.classList.add('show-nav');
-//        navBarLm.style.display = "none";
 
+}
+function hideNav(){
+    navBarLm.classList.remove('show-nav');
 }
 
 
-startButtomLm.addEventListener('click', ()=> {
-    increase();
-});
-
-resetButtomLm.addEventListener('click', ()=> {
-    clear();
-});
+//startButtomLm.addEventListener('click', ()=> {
+//    increase();
+//});
+//
+//resetButtomLm.addEventListener('click', ()=> {
+//    clear();
+//});
 
 navButtonLm.addEventListener('click',()=> {
     showNav();
-    document.alert('test');
+});
+
+cancelNavButtonLm.addEventListener('click',()=> {
+    hideNav();
 });
 

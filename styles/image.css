@@ -1,0 +1,59 @@
+
+.profile{
+
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+.cart{
+    background-color: transparent;
+    height: 24px;
+    margin-top: 10px;
+}
+
+
+
+
+@media (min-width: 0px) and (max-width: 900px){
+
+
+
+    .colb{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 150px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .idea{
+        width: 100%;
+        flex: 1;
+        object-fit: contain;
+        border-radius: 16px;
+        height: 80px;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1920px){
+
+
+    .colb{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .idea{
+        max-width: 50%;
+        flex: 1;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+}

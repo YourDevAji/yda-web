@@ -1,0 +1,58 @@
+
+button:hover{
+    opacity: 0.6;
+}
+button:active{
+    opacity: 0.8;
+}
+
+.increase{
+
+    background-color: #1a1acc;
+    color: white;
+    padding: 16px 24px 16px 24px;
+    border-style: none;
+    margin-left: 16px;
+    margin-top: 16px;
+    font-size: 16px;
+    border-radius: 20px;
+
+}
+
+.reset{
+    background-color: transparent;
+    color: red;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+@media (min-width: 800px) and (max-width: 1920px){
+
+    .right-button{
+        flex: 1;
+        max-width: 100px;
+        border: none;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        background-color: #2a2a2a;
+        color: white;
+        font-weight: bold;
+    }
+
+}
+
+.cancel-menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: black;
+    border: none;
+    margin-right: 18px;
+    margin-bottom: 24px;
+    height: 35px;
+    font-size: 18px;
+}
+

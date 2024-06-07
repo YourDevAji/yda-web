@@ -5,10 +5,12 @@ body{
     padding-top: 70px;
     padding-bottom: 500px;
     font-family: Roboto , Arial;
+}
+
+html{
     overflow: hidden;
     overflow-y: auto;
 }
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 html::-webkit-scrollbar {
     display: none;

@@ -129,9 +129,7 @@
         z-index: 1;
         display: flex;
         background-color: #000000;
-        padding: 16px;
         align-items: center;
-        padding-left: 16px;
         margin-bottom: 0px;
         position: fixed;
         top:0px;
@@ -184,6 +182,12 @@
         margin-left: 10%;
     }
 
+    .space{
+        margin-left: 10%;
+        margin-right: 10%;
+        align-items: center;
+    }
+
 }
 
 /* Mobile View */
@@ -194,9 +198,7 @@
         z-index: 1;
         display: flex;
         background-color: #000000;
-        padding: 0px;
         align-items: center;
-        padding-left: 16px;
         margin-bottom: 0px;
         position: fixed;
         top:0px;
@@ -264,7 +266,7 @@
         flex-direction: column;
         row-gap: 8px;
         top: 60px;
-        width: 60%;
+        width: 80%;
         align-items: stretch;
         background-color: white;
         border-top-left-radius: 10px;
@@ -312,19 +314,17 @@
         font-size: 32px;
         font-family: Roboto, Arial;
         font-weight: bold;
-        margin-right: 10%;
         text-align: center;
-        margin-left: 10%;
+    }
+
+    .space{
+        margin-left: 5%;
+        margin-right: 5%;
+        align-items: center;
     }
 
 
 
-}
-
-.space{
-    margin-left: 10%;
-    margin-right: 10%;
-    align-items: center;
 }
 
 

@@ -1,14 +1,5 @@
 
-.name{
-    margin-left: 16px;
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    font-family: Anton, Arial;
-    letter-spacing: 8px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
+
 
 .title{
 
@@ -88,6 +79,17 @@
 
 @media (min-width: 0px) and (max-width: 800px){
 
+    .name{
+        margin-left: 16px;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Anton, Arial;
+        letter-spacing: 8px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
 /*    .menu-div:hover  .menu-text{*/
     .show-nav  .menu-text{
         color: white;
@@ -127,6 +129,16 @@
 @media (min-width: 800px) and (max-width: 1920px){
 
 
+    .name{
+        margin-left: 16px;
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
+        font-family: Anton, Arial;
+        letter-spacing: 8px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 
     .menu-text{
         color: white;

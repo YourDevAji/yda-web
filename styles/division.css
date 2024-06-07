@@ -1,18 +1,6 @@
 
 
-.header{
-    z-index: 1;
-    display: flex;
-    background-color: #000000;
-    padding: 16px;
-    align-items: center;
-    padding-left: 16px;
-    margin-bottom: 0px;
-    position: fixed;
-    top:0px;
-    left: 0px;
-    right: 0px;
-}
+
 
 .left-sec{
     display: flex;
@@ -137,6 +125,19 @@
 @media (min-width: 800px) and (max-width: 1920px){
 
 
+    .header{
+        z-index: 1;
+        display: flex;
+        background-color: #000000;
+        padding: 16px;
+        align-items: center;
+        padding-left: 16px;
+        margin-bottom: 0px;
+        position: fixed;
+        top:0px;
+        left: 0px;
+        right: 0px;
+    }
 
     .search-container{
         height: 48px;
@@ -176,14 +177,29 @@
 
 }
 
+/* Mobile View */
 @media (min-width: 0px) and (max-width: 800px){
 
 
+    .header{
+        z-index: 1;
+        display: flex;
+        background-color: #000000;
+        padding: 8px;
+        align-items: center;
+        padding-left: 16px;
+        margin-bottom: 0px;
+        position: fixed;
+        top:0px;
+        left: 0px;
+        right: 0px;
+    }
 
     .menu-div{
         visibility: visible;
         width: 0px;
         position: relative;
+        margin-right: 16px;
     }
 
 

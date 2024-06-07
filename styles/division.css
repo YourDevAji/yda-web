@@ -5,8 +5,6 @@
 .left-sec{
     display: flex;
     align-items: center;
-/*   flex: 1;*/
-/*    margin-right: 16px;*/
 }
 
 .middle-sec{
@@ -49,7 +47,6 @@
     margin-left: 24px;
     margin-right: 24px;
     margin-top: 16px;
-/*    height: 300px;*/
     border-radius: 20px;
     background-color: white;
     margin-bottom: 500px;
@@ -209,6 +206,8 @@
         top:0px;
         left: 0px;
         right: 0px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     .menu-div{
@@ -232,15 +231,10 @@
         height: 100%;
         position: fixed;
         z-index: 10;
-/*        top: 60px;*/
         right: 0px;
         top: 0px;
-/*        padding: 16px;*/
-
         background-color: black;
-/*        padding: 16px;*/
         border-radius: 16px;
-/*        margin-right: 16px;*/
         visibility: visible;
 
     }
@@ -271,10 +265,8 @@
         flex-direction: column;
         row-gap: 8px;
         top: 60px;
-        width: 85%;
+        width: 80%;
         align-items: stretch;
-/*        margin-left: 10%;*/
-/*        margin-right: 10%;*/
         background-color: white;
         border-top-left-radius: 10px;
         border-bottom-right-radius: 10px;
@@ -325,8 +317,8 @@
     }
 
     .space{
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left: 8%;
+        margin-right: 8%;
         align-items: center;
     }
 

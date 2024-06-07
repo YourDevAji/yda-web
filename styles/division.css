@@ -175,6 +175,15 @@
         height: 0px;
     }
 
+    .achieve{
+        color: white;
+        font-size: 48px;
+        font-family: Roboto, Arial;
+        font-weight: bold;
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+
 }
 
 /* Mobile View */
@@ -298,6 +307,18 @@
         font-weight: bold;
     }
 
+    .achieve{
+        color: white;
+        font-size: 32px;
+        font-family: Roboto, Arial;
+        font-weight: bold;
+        margin-right: 10%;
+        text-align: center;
+        margin-left: 10%;
+    }
+
+
+
 }
 
 .space{
@@ -306,14 +327,7 @@
     align-items: center;
 }
 
-.achieve{
-    color: white;
-    font-size: 48px;
-    font-family: Roboto, Arial;
-    font-weight: bold;
-    margin-right: 10%;
-    margin-left: 10%;
-}
+
 
 .center{
     display: flex;

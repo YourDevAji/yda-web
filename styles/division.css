@@ -247,7 +247,7 @@
 
 
 /*    .menu-div:hover  .menu-container{*/
-    .show-nav  .menu-container{
+    .show-nav  .menu-container {
         width: 80%;
         height: 100%;
         position: fixed;
@@ -258,6 +258,13 @@
         border-radius: 16px;
         visibility: visible;
         transition: 1s ease-out;
+
+
+        overflow: hidden;
+        overflow-y: auto;
+        padding-top: 70px;
+
+
 
     }
 
@@ -360,7 +367,14 @@
 
 .menu-right{
     display: flex;
+    width: 80%;
     justify-content: flex-end;
     align-items: center;
     padding-top: 16px;
+    padding-bottom: 16px;
+    background-color: black;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 900px;
 }

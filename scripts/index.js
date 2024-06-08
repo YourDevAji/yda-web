@@ -48,11 +48,14 @@ function increase(){
 }
 
 function showNav(){
+    document.body.classList.add('no-scroll');
     navBarLm.classList.add('show-nav');
 
 }
 function hideNav(){
     navBarLm.classList.remove('show-nav');
+    document.body.classList.remove('no-scroll');
+
 }
 
 

@@ -52,10 +52,11 @@ button:active{
     justify-content: flex-end;
     background-color: black;
     border: none;
-/*    margin-right: 10px;*/
-    margin-bottom: 24px;
+/*    margin-bottom: 24px;*/
     height: 35px;
     font-size: 18px;
+
+
 }
 
 .menu-button{

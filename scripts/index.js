@@ -1,3 +1,7 @@
+
+
+import { startSearch } from '/scripts/search.js'
+
 let counterClick = 0;
 const startButtomLm = document.querySelector('.increase');
 const resetButtomLm = document.querySelector('.reset');
@@ -9,6 +13,8 @@ const navBarLm = document.querySelector('.menu-div');
 
 const historyList = [];
 
+
+startSearch();
 
 
 function clear(){

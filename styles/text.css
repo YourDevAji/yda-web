@@ -90,17 +90,27 @@
         margin-bottom: 0px;
     }
 
+        .menu-text{
+        visibility: hidden;
+        width: 0px;
+        text-decoration: none;
+        align-items: center;
+
+    }
 
     .show-nav  .menu-text{
         color: white;
+        width: auto;
         visibility: visible;
         padding-left: 10%;
         padding-right: 10%;
         padding-top: 16px;
         padding-bottom: 16px;
         display: flex;
-        column-gap: 8px;
-        justify-content: space-between;
+/*        column-gap: 8px;*/
+        text-decoration: none;
+        align-items: center;
+/*        justify-content: space-between;*/
     }
 
 
@@ -144,7 +154,6 @@
         visibility: hidden;
         height: 0px;
         width: 0px;
-
     }
 
     .left-search {
@@ -204,6 +213,14 @@
 
 .no-m{
     margin: 0px;
+}
+
+.top-div{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: opacity 0.1s;
+    text-decoration: none;
 }
 
 

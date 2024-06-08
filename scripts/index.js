@@ -10,6 +10,7 @@ const tabContainerLm = document.querySelector('.tab-container');
 const navButtonLm = document.querySelector('.menu-button');
 const cancelNavButtonLm = document.querySelector('.cancel-menu');
 const navBarLm = document.querySelector('.menu-div');
+const navOverlayLm = document.querySelector('.menu-overlay');
 
 const historyList = [];
 
@@ -68,6 +69,10 @@ navButtonLm.addEventListener('click',()=> {
 });
 
 cancelNavButtonLm.addEventListener('click',()=> {
+    hideNav();
+});
+
+navOverlayLm.addEventListener('click',()=> {
     hideNav();
 });
 

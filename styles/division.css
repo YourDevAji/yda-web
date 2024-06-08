@@ -225,7 +225,7 @@
         position: fixed;
         visibility: hidden;
         width: 0px;
-    }
+     }
 
     .menu-overlay{
         height: 0px;
@@ -242,6 +242,7 @@
         top: 0px;
         right: 0px;
     }
+
 
 
 

@@ -1,4 +1,8 @@
 
+const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
 
 export function startSearch(param){
     const url = 'https://vnqdicxxneesaxrttein.supabase.co/functions/v1/fetch_search';
@@ -10,6 +14,7 @@ export function startSearch(param){
     const options = {
         method: 'POST',
         headers: {
+//            ...corsHeaders,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)

@@ -1,1 +1,3 @@
 ../secrets/
+../utils/
+.env.local

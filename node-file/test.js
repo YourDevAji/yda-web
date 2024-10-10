@@ -7,3 +7,4 @@ function sayName(name){
 sayName('Johnson');
 
 
+module.exports.sayName = sayName;

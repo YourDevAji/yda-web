@@ -17,21 +17,20 @@
 
 @media (min-width: 0px) and (max-width: 900px){
 
-
-
-    .colb{
-/*        padding-left: 16px;*/
-/*        padding-right: 16px;*/
-        padding-top: 150px;
+    .web-description{
+        padding-top: 100px;
         padding-bottom: 20px;
         display: flex;
+        margin-left: 8%;
+        margin-right: 8%;
+        align-items: center;
         flex-direction: column;
     }
-
 
     .idea{
         width: 100%;
         flex: 1;
+        margin-top: 20px;
         object-fit: contain;
         border-radius: 20px;
         height: 100px;
@@ -41,9 +40,7 @@
 @media (min-width: 900px) and (max-width: 1920px){
 
 
-    .colb{
-/*        padding-left: 16px;*/
-/*        padding-right: 16px;*/
+    .web-description{
         padding-top: 50px;
         padding-bottom: 50px;
         display: flex;

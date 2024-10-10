@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/supabase/.branches" />
       <excludeFolder url="file://$MODULE_DIR$/supabase/.temp" />
+      <excludeFolder url="file://$MODULE_DIR$/secrets" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

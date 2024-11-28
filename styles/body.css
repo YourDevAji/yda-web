@@ -11,9 +11,9 @@ input[type="text"],
 input[type="search"] {
     border: none; /* Removes the border */
     outline: none; /* Removes the focus outline */
-    font-size: 16px; /* Prevent zoom */
-    transform: scale(0.9); /* Scale down for visual effect */
-    transform-origin: left; /* Adjust origin as needed */
+/*    font-size: 16px; *//* Prevent zoom */
+/*    transform: scale(0.9); *//* Scale down for visual effect */
+/*    transform-origin: left; *//* Adjust origin as needed */
 }
 
 body{

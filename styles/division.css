@@ -1072,6 +1072,7 @@ pre {
         border: none;
         opacity: 0.7;
         width: 100%;
+        font-size: 16px;
         box-sizing: border-box;
         padding-left: 16px;
         padding-right: 16px;
@@ -1145,6 +1146,7 @@ pre {
         border: none;
         opacity: 0.7;
         width: 100%;
+        font-size: 16px;
         box-sizing: border-box;
         padding-left: 16px;
         padding-right: 16px;

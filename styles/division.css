@@ -664,10 +664,7 @@ pre {
 }
 
 
-input[type="search"] {
-    border: none; /* Removes the border */
-    outline: none; /* Removes the focus outline */
-}
+
 .visible {
     visibility: visible;
 }
@@ -1392,7 +1389,7 @@ input[type="search"] {
         border-width: 4px;
         padding: 0px;
         min-width: 60%;
-        height: 65vh;
+        height: 60vh;
     }
 }
 

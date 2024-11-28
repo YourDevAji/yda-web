@@ -11,6 +11,23 @@ let selectedType = null;
 // Event listeners for category and type inputs
 categoryInput.addEventListener('input', (event) => handleCategoryInput(event.target.value));
 typeInput.addEventListener('input', (event) => handleTypeInput(event.target.value));
+categoryInput.addEventListener('focus', () => handleCategoryFocusChange(true));
+typeInput.addEventListener('focus', () => handleTypeFocusChange(true));
+
+const handleCategoryFocusChange = (isFocused) => {
+    if (isFocused) {
+        clearContainer('.middle-content', '.middle-search');
+        handleCategoryInput('%');
+    }
+};
+
+const handleTypeFocusChange = (isFocused) => {
+    if (isFocused) {
+        clearContainer('.left-content', '.left-search');
+        handleTypeInput('%');
+    }
+};
+
 
 // Handles input changes for category
 async function handleCategoryInput(inputValue) {

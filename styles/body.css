@@ -2,9 +2,8 @@ body{
     background-color: #000000;
     margin: 0px;
     width: 100%;
-    margin-top:90px;
+    margin-top:82px;
     font-family: Roboto , Arial;
-
 }
 
 
@@ -42,7 +41,7 @@ html {
     right:0px;
     align-items: center;
     width: 100%;
-
+    border-bottom: 1px solid #2a2a2a;
 }
 
 .web-menu{
@@ -125,7 +124,6 @@ html {
     width: 250px;
     z-index: 1001;
     background: black;
-
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -201,6 +199,17 @@ html {
         width: 0px;
     }
 
+    .web-menu-title-link{
+        font-size: 24px;
+    }
+
+    body{
+        margin-top: 56px;
+    }
+
+    .web-menu-nav{
+        height: 24px;
+    }
 
 }
 

@@ -1,110 +1,205 @@
-import supabaseClient from '/scripts/supabaseClient.js'
+import supabaseClient from '/scripts/supabaseClient.js';
 
-// Get the input element and output paragraph
-const categoryText = document.getElementById('left-search');
-const typeText = document.getElementById('middle-search');
+// Get input elements and button
+const categoryInput = document.getElementById('left-search');
+const typeInput = document.getElementById('middle-search');
+const searchButton = document.getElementById('search-button');
 
-let currentCategory;
+let selectedCategory = null;
+let selectedType = null;
 
-// Add an event listener for the 'categoryText' event
-categoryText.addEventListener('input', function(event) {
-    // Get the current value of the input
-    const inputValue = event.target.value;
+// Event listeners for category and type inputs
+categoryInput.addEventListener('input', (event) => handleCategoryInput(event.target.value));
+typeInput.addEventListener('input', (event) => handleTypeInput(event.target.value));
 
-    // Call function to fetch categories from db
-    fetchCategories(inputValue);
-});
-
-// Add an event listener for the 'typeText' event
-typeText.addEventListener('input', function(event) {
-    // Get the current value of the input
-    const inputValue = event.target.value;
-
-    // Call function to fetch types from db
-
-    // Display the value in the popup
-    console.log(inputValue);
-});
-
-
-// Function to fetch categories based on user input
-async function fetchCategories(inputValue) {
-    if(inputValue.length === 0){
-        clearContent('.left-content');
+// Handles input changes for category
+async function handleCategoryInput(inputValue) {
+    if (isInputEmpty(inputValue)) {
+        resetCategorySelection();
+        resetTypeSelection();
         return;
     }
-    populateLoading('.left-content',true);
-    const { data, error } = await supabaseClient
-        .from('category_table')  // Replace with your actual table name
-        .select('*')
-        .ilike('category_identity', `%${inputValue}%`);  // Adjust column name as needed
-    populateLoading('.left-content',false);
-    if (error) {
-        console.error('Error fetching categories:', error);
-    } else if(data.length > 0) {
-        populateCategorySearchResults('.left-content',data);
-    }else{
-        //        Empty Result
-    }
-}
-
-function populateLoading(containerClass,show){
-    const container = document.querySelector(containerClass);
-    clearContent(containerClass);
-
-    if(show){
-        styledPopulation('.left-search',true);
-        container.classList.add('visible');
-        container.classList.remove('hidden');
-        const loadingDiv = document.createElement('div');
-        loadingDiv.classList.add('loader-popup');
-        container.appendChild(loadingDiv);
-    }
-}
-
-function styledPopulation(containerClass,show){
-    const container = document.querySelector(containerClass);
-    if(show){
-        container.classList.add('populate-content-border');
-        container.classList.remove('no-content-border');
-    }else{
-        container.classList.add('no-content-border');
-        container.classList.remove('populate-content-border');
-    }
-}
-
-function clearContent(containerClass){
-    const container = document.querySelector(containerClass);
-    styledPopulation('.left-search',false);
-    container.classList.remove('visible');
-    container.classList.add('hidden');
-    container.innerHTML = ''; // Clear previous results
-}
-
-// Helper function to create and append result items
-function populateCategorySearchResults(containerClass, data) {
-    const container = document.querySelector(containerClass);
-
-    clearContent(containerClass);
-    styledPopulation('.left-search',true);
-    container.classList.add('visible');
-    container.classList.remove('hidden');
-    data.forEach(item => {
-        const resultDiv = document.createElement('div');
-        resultDiv.classList.add('search-popup-result');
-        resultDiv.innerText = item['category_identity']; // Show either category_identity or type_identity
-
-        // You can add click event if needed to select a result
-        resultDiv.addEventListener('click', () => {
-            categoryText.value = item['category_identity'];
-            currentCategory = item;
-            clearContent(containerClass);
-        });
-
-        container.appendChild(resultDiv);
+    await fetchAndDisplayResults({
+        inputValue,
+        fetchFunction: fetchCategories,
+        resultContainer: '.left-content',
+        stylingClass: '.left-search',
+        onSelect: handleCategorySelection,
     });
 }
 
-export async function startSearch(param){
-    //    console.log(supabaseClient);
+// Handles input changes for type
+async function handleTypeInput(inputValue) {
+    if (isInputEmpty(inputValue)) {
+        resetTypeSelection();
+        return;
+    }
+    const fetchFunction = selectedCategory
+    ? (value) => fetchTypesByCategory(value, selectedCategory.category_id)
+    : fetchAllTypes;
+
+    await fetchAndDisplayResults({
+        inputValue,
+        fetchFunction,
+        resultContainer: '.middle-content',
+        stylingClass: '.middle-search',
+        onSelect: handleTypeSelection,
+    });
+}
+
+// Utility to check if input is empty
+function isInputEmpty(value) {
+    return value.trim().length === 0;
+}
+
+// Resets the selected category
+function resetCategorySelection() {
+    selectedCategory = null;
+    typeInput.value = '';
+    clearContainer('.left-content', '.left-search');
+    disableSearchButton();
+}
+
+// Resets the selected type
+function resetTypeSelection() {
+    selectedType = null;
+    clearContainer('.middle-content', '.middle-search');
+    disableSearchButton();
+}
+
+// Fetches categories matching input
+async function fetchCategories(inputValue) {
+    return supabaseClient
+        .from('category_table')
+        .select('*')
+        .ilike('category_identity', `%${inputValue}%`);
+}
+
+// Fetches types for a specific category
+async function fetchTypesByCategory(inputValue, categoryId) {
+    return supabaseClient
+        .from('type_table')
+        .select('*')
+        .eq('category_id', categoryId)
+        .ilike('type_identity', `%${inputValue}%`);
+}
+
+// Fetches all types matching input
+async function fetchAllTypes(inputValue) {
+    return supabaseClient
+        .from('type_table')
+        .select('*,category_table(*)')
+        .ilike('type_identity', `%${inputValue}%`);
+}
+
+// Displays results and manages the loading state
+async function fetchAndDisplayResults({
+    inputValue,
+    fetchFunction,
+    resultContainer,
+    stylingClass,
+    onSelect,
+}) {
+    showLoadingIndicator(resultContainer, stylingClass);
+    const { data, error } = await fetchFunction(inputValue);
+    hideLoadingIndicator(resultContainer, stylingClass);
+
+    if (error) {
+        console.error('Error fetching data:', error);
+        return;
+    }
+
+    if (data?.length > 0) {
+        populateResults(resultContainer, data, stylingClass, onSelect);
+    } else {
+        clearContainer(resultContainer, stylingClass);
+    }
+}
+
+// Populates the results container with data
+function populateResults(containerSelector, data, stylingClass, onSelect) {
+    const container = document.querySelector(containerSelector);
+    clearContainer(containerSelector, stylingClass);
+    applyContainerStyling(stylingClass, true);
+
+    data.forEach((item) => {
+        const resultDiv = document.createElement('div');
+        resultDiv.classList.add('search-popup-result');
+        resultDiv.textContent = item['category_identity'] || item['type_identity'];
+        resultDiv.addEventListener('click', () => onSelect(item));
+        container.appendChild(resultDiv);
+    });
+
+    container.classList.add('visible');
+    container.classList.remove('hidden');
+}
+
+// Handles category selection
+function handleCategorySelection(category) {
+    categoryInput.value = category['category_identity'];
+    selectedCategory = category;
+    resetTypeSelection();
+    clearContainer('.left-content', '.left-search');
+    enableSearchButtonIfReady();
+}
+
+// Handles type selection
+function handleTypeSelection(type) {
+    typeInput.value = type['type_identity'];
+    selectedType = type;
+
+    if (!selectedCategory && type['category_table']) {
+        handleCategorySelection(type['category_table']);
+    }
+    clearContainer('.middle-content', '.middle-search');
+    enableSearchButtonIfReady();
+}
+
+// Enables the search button if both category and type are selected
+function enableSearchButtonIfReady() {
+    searchButton.disabled = !(selectedCategory && selectedType);
+}
+
+// Disables the search button
+function disableSearchButton() {
+    searchButton.disabled = true;
+}
+
+// Shows a loading indicator
+function showLoadingIndicator(containerSelector, stylingClass) {
+    clearContainer(containerSelector, stylingClass);
+    applyContainerStyling(stylingClass, true);
+
+    const container = document.querySelector(containerSelector);
+    const loadingIndicator = document.createElement('div');
+    loadingIndicator.classList.add('loader-popup');
+    container.appendChild(loadingIndicator);
+
+    container.classList.add('visible');
+    container.classList.remove('hidden');
+}
+
+// Hides the loading indicator
+function hideLoadingIndicator(containerSelector, stylingClass) {
+    applyContainerStyling(stylingClass, false);
+}
+
+// Clears the container and removes styling
+function clearContainer(containerSelector, stylingClass) {
+    const container = document.querySelector(containerSelector);
+    applyContainerStyling(stylingClass, false);
+    container.classList.add('hidden');
+    container.classList.remove('visible');
+    container.innerHTML = '';
+}
+
+// Applies or removes styling to a container
+function applyContainerStyling(stylingClass, isPopulated) {
+    const element = document.querySelector(stylingClass);
+    element.classList.toggle('populate-content-border', isPopulated);
+    element.classList.toggle('no-content-border', !isPopulated);
+}
+
+export async function startSearch(params) {
+    console.log('Starting search with params:', params);
 }

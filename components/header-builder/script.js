@@ -1,4 +1,3 @@
-//import HtmlWidget from '/yda-web/components/html-widget.js';
 import HtmlWidget from '../html-widget.js';
 
 //// Add stylesheet dynamically

@@ -23,6 +23,38 @@
 }
 
 
+/*Prices Page*/
+.pricing-title{
+    color: white;
+    margin: 0px;
+}
+
+.pricing-description{
+    color: white;
+    margin: 0px;
+    margin-top: 8px;
+}
+
+.pricing-price{
+    margin: 0px;
+    color: white;
+    display: flex;
+}
+
+.pricing-period{
+    margin: 0px;
+    display: flex;
+    color: white;
+    margin-bottom: 6px;
+    margin-left: 3px;
+}
+
+.pricing-inclusion-title{
+    color: white;
+    margin: 0px;
+    margin-top: 8px;
+}
+
 @media (min-width: 0px) and (max-width: 800px){
 
 

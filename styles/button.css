@@ -5,6 +5,20 @@ button: hover{
 }
 
 
+.pricing-button{
+    margin-top: 16px;
+    background-color: #2a2a2a;
+    width: 100%;
+    min-height: 50px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    background-color: #2a2a2a;
+    color: white;
+    font-weight: bold;
+}
 
 @media (max-width: 800px){
 

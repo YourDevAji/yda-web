@@ -17,13 +17,13 @@
           rel="stylesheet">
 
     <link rel="stylesheet" href="/styles/icons.css">
-    <link rel="stylesheet" href="styles/text.css">
-    <link rel="stylesheet" href="styles/body.css">
-    <link rel="stylesheet" href="styles/button.css">
-    <link rel="stylesheet" href="styles/division.css">
-    <link rel="stylesheet" href="styles/image.css">
-    <link rel="stylesheet" href="styles/arrow.css">
-    <link rel="icon" href="images/fav-icon.png">
+    <link href="/styles/text.css" rel="stylesheet">
+    <link href="/styles/body.css" rel="stylesheet">
+    <link href="/styles/button.css" rel="stylesheet">
+    <link href="/styles/division.css" rel="stylesheet">
+    <link href="/styles/image.css" rel="stylesheet">
+    <link href="/styles/arrow.css" rel="stylesheet">
+    <link href="/images/fav-icon.png" rel="icon">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -31,6 +31,7 @@
     <script type="module" src="/scripts/supabaseClient.js"></script>
     <script type="module" src="/scripts/index.js"></script>
     <script type="module" src="/scripts/search.js"></script>
+    <script src="/components/header-builder/script.js" type="module"></script>
 
 
 </head>
@@ -39,86 +40,7 @@
 
 
 <!--Website Header-->
-
-<!--Navigation-->
-
-<nav class="web-nav">
-    <input type="checkbox" id="side-menu-active" class="nav-hide-box">
-    <label id="web-nav-overlay" for="side-menu-active"></label>
-    <ul class="side-menu">
-        <li class="side-menu-icon">
-            <label for="side-menu-active">
-                <div class="side-menu-icon-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="26px"
-                         viewBox="0 -960 960 960" width="26px" fill="#FFFFFF">
-                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
-                    </svg>
-                </div>
-            </label>
-        <li class="side-menu-nav"><a href="#" class="side-menu-link nav-text">Features
-            <svg xmlns="http://www.w3.org/2000/svg" height="32px"
-                 viewBox="0 -960 960 960" width="32px" fill="#FFFFFF">
-                <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/>
-            </svg>
-        </a></li>
-        <li class="side-menu-nav"><a href="#" class="side-menu-link nav-text">Why Us
-            <svg xmlns="http://www.w3.org/2000/svg" height="32px"
-                 viewBox="0 -960 960 960" width="32px" fill="#FFFFFF">
-                <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/>
-            </svg>
-        </a></li>
-        <li class="side-menu-nav"><a href="#" class="side-menu-link nav-text">Prices
-            <svg xmlns="http://www.w3.org/2000/svg" height="32px"
-                 viewBox="0 -960 960 960" width="32px" fill="#FFFFFF">
-                <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/>
-            </svg>
-        </a></li>
-        <li class="side-menu-nav"><a href="#" class="side-menu-link nav-text">Contact
-            <svg xmlns="http://www.w3.org/2000/svg" height="32px"
-                 viewBox="0 -960 960 960" width="32px" fill="#FFFFFF">
-                <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/>
-            </svg>
-        </a></li>
-        <li class="side-menu-nav side-menu-started"><a href="#" class="side-menu-link nav-text">Get
-            Started</a></li>
-    </ul>
-
-    <ul class="web-menu">
-        <li class="web-menu-nav web-menu-title"><a href="#" class="web-menu-title-link">YDA</a></li>
-        <li class="web-menu-nav web-menu-icon"><label for="side-menu-active">
-            <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-
-                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <g id="SVGRepo_iconCarrier">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z"
-                          fill="#ffffff"/>
-                </g>
-
-            </svg>
-        </label>
-        </li>
-        <li class="web-menu-nav web-menu-hidden"><a href="#"
-                                                    class="web-menu-link nav-text">Features</a></li>
-        <li class="web-menu-nav web-menu-hidden"><a href="#" class="web-menu-link nav-text">Why
-            Us</a></li>
-        <li class="web-menu-nav web-menu-hidden"><a href="#"
-                                                    class="web-menu-link nav-text">Prices</a></li>
-        <li class="web-menu-nav web-menu-contact web-menu-hidden"><a href="#"
-                                                                     class="web-menu-link nav-text">Contact</a>
-        </li>
-        <li class="web-menu-nav web-menu-get-started web-menu-hidden"><a href="#"
-                                                                         class="web-menu-link nav-text">Get
-            Started</a></li>
-        <li class="web-menu-nav web-menu-spacer web-menu-hidden"></li>
-    </ul>
-
-</nav>
-
+<div id="home-header"></div>
 
 <!--Overlay & Search-->
 <section class="search-overlay">

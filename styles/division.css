@@ -663,14 +663,119 @@ pre {
     margin-bottom: 100px;
 }
 
-
-
 .visible {
     visibility: visible;
 }
 .hidden {
     visibility: hidden;
 }
+
+/* Prices Page*/
+.prices-first-section{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 150px;
+    flex-direction: column;
+    align-items:center;
+    display: flex;
+    flex-grow: 1;
+}
+
+.prices-first-header{
+    color: white;
+    font-size: 34px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.prices-first-description{
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.prices-viewer-container{
+    display: flex;
+    margin-top: 70px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.prices-viewer-item{
+    display: flex;
+    flex: 1;
+    min-height: 35vh;
+    padding: 16px;
+    flex-direction: column;
+    position: relative;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-right: 0.5px solid white;
+    border-left: 0.5px solid white;
+}
+
+.prices-viewer-item:first-child{
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 8px  0px  0px 8px;
+}
+
+.prices-viewer-item:last-child{
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 0px  8px  8px 0px;
+}
+
+.prices-popular{
+    border: 1.5px solid white;
+    min-height:40vh;
+    padding: 16px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -20px;
+    bottom: -20px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.prices-popular .pricing-button{
+    margin-top: 36px;
+}
+
+.pricing-price-container{
+    margin-top: 32px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.pricing-divider{
+    border-bottom: 1px solid white;
+}
+
+.pricing-inclusion-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.pricing-inclusion-item{
+    display: flex;
+    color: white;
+    gap: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 14px;
+}
+
+.pricing-inclusion-item:first-child{
+    padding-top: 12px;
+}
+
 
 @media (min-width: 800px) and (max-width: 1920px){
 
@@ -967,6 +1072,32 @@ pre {
 
 
 /* Tablet View */
+@media (min-width: 500px) and (max-width: 800px){
+    .prices-viewer-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two-column layout for mobile */
+        margin-top: 40px;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .prices-viewer-item{
+        border-radius: 8px;
+    }
+
+    .prices-viewer-item:first-child{
+        border-radius: 8px;
+    }
+
+    .prices-viewer-item:last-child{
+        border-radius: 8px;
+    }
+
+    .prices-popular{
+        display: none;
+    }
+
+}
 @media (min-width: 1070px) and (max-width: 1920px){
 
     .web-skills-container {
@@ -1027,9 +1158,35 @@ pre {
     .web-skills-container::after {
         width: 0px;
     }
+
 }
 
 /* Mobile View */
+@media  (max-width: 500px){
+    .prices-viewer-container{
+        display: flex;
+        margin-top: 40px;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .prices-viewer-item{
+        border-radius: 8px;
+    }
+
+    .prices-viewer-item:first-child{
+        border-radius: 8px;
+    }
+
+    .prices-viewer-item:last-child{
+        border-radius: 8px;
+    }
+
+    .prices-popular{
+        display: none;
+    }
+}
 @media  (max-width: 800px){
 
     .search-container-overlay{
@@ -1392,6 +1549,27 @@ pre {
         padding: 0px;
         min-width: 60%;
         height: 60vh;
+    }
+
+    .prices-first-section{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 90px;
+        flex-direction: column;
+        align-items:center;
+        justify-items: center;
+        display: flex;
+        flex-grow: 1;
+    }
+
+    .prices-first-header{
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .prices-first-description{
+        text-align: center;
+        font-size: 14px;
     }
 }
 

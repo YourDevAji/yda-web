@@ -1,5 +1,5 @@
-import {nonPouplarCard} from '/yda-web/components/non-popular-pricing-builder/script.js';
-import {pouplarCard} from '/yda-web/components/popular-pricing-builder/script.js';
+import {nonPouplarCard} from '/components/non-popular-pricing-builder/script.js';
+import {pouplarCard} from '/components/popular-pricing-builder/script.js';
 
 
 

@@ -18,7 +18,7 @@ const processedHeaders = new Set(); // Use a Set for faster lookups
 async function appendHeaders() {
     try {
         // Render the HTML content once
-        const renderedHeader = await headerWidget.renderFromFile('/components/header-builder/index.html', {});
+        const renderedHeader = await headerWidget.renderFromFile('../yda-web/components/header-builder/index.html', {});
 
         if (!renderedHeader) {
             console.error("Failed to render header content.");

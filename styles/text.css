@@ -29,11 +29,7 @@
     margin: 0px;
 }
 
-.pricing-description{
-    color: white;
-    margin: 0px;
-    margin-top: 8px;
-}
+
 
 .pricing-price{
     margin: 0px;
@@ -75,6 +71,11 @@
         text-align: center;
         font-size: 16px;
     }
+    .pricing-description{
+        color: white;
+        margin: 0px;
+        margin-top: 8px;
+    }
 
 }
 
@@ -93,6 +94,15 @@
         margin-top: 24px;
         max-width: 80%;
         font-size: 24px;
+    }
+
+    .pricing-description{
+        color: white;
+        margin: 0px;
+        margin-top: 8px;
+        overflow: hidden; /* Clips content if text exceeds 5 lines */
+        line-height: 1.5; /* Adjust this to set the space between lines */
+        height: calc(1.5em * 4); /* Force height to exactly 5 lines */
     }
 
 }

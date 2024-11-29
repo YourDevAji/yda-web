@@ -1,4 +1,4 @@
-import HtmlWidget from '../components/html-widget.js';
+import HtmlWidget from '/yda-web/components/html-widget.js';
 
 //// Add stylesheet dynamically
 //const link = document.createElement("link");

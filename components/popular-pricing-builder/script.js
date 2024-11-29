@@ -1,4 +1,4 @@
-import HtmlWidget from '/yda-web/components/html-widget.js';
+import HtmlWidget from 'components/html-widget.js';
 
 
 // Initialize HtmlWidget
@@ -21,6 +21,6 @@ export async function pouplarCard(){
         ]
     };
 
-    const renderedCard = await popularPricingWidget.renderFromFile('../yda-web/components/popular-pricing-builder/index.html', data);
+    const renderedCard = await popularPricingWidget.renderFromFile('components/popular-pricing-builder/index.html', data);
     return renderedCard;
 }

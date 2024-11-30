@@ -33,10 +33,36 @@
     background-color: #101010a6;
 }
 
+.latest-project-shimmer{
+    border-radius: 8px;
+    min-height: 40vh;
+    height: 40vh;
+    background-color: #131313;
+    overflow: hidden;
+}
+
+.web-stat-shimmer{
+    background-color: #ffffff64;
+    height: 15vh;
+    flex: 1;
+    overflow: hidden;
+}
+
 @media (max-width: 800px){
     .royalties-shimmer{
         border-radius: 8px;
     }
+
+    .latest-project-shimmer{
+        border-radius: 8px;
+        height: 40vh;
+        min-height: 40vh;
+        background-color: #131313;
+        overflow: hidden;
+        width: 100%; /* Ensures items take full width */
+        max-width: 400px; /* Limiting max width for mobile */
+    }
+
 }
 @media (min-width: 800px) and (max-width: 1920px){
 

@@ -1,0 +1,17 @@
+<div class="latest-project-item">
+    <img alt="project image" class="latest-project-image" src="{{projectSrc}}">
+
+    <div class="project-item-title-text">{{title}}</div>
+    <div class="project-item-description-text">{{description}}</div>
+
+    <div class="project-item-footer">
+        <div class="project-footer-title">{{platformTitle}}</div>
+        <div class="project-footer-platform">
+            {{#platforms}}
+            <a href="{{link}}" target="_blank">
+                <img alt="{{altText}}" class="footer-platform-image" src="{{platformSrc}}">
+            </a>
+            {{/platforms}}
+        </div>
+    </div>
+</div>

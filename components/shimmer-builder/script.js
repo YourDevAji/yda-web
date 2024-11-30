@@ -10,16 +10,13 @@ document.head.appendChild(link);
 
 
 
-export function shimmerShape(style) {
+export function shimmerShape(style,inner = '') {
     const shimmerWidget = new HtmlWidget();
-    const shimmerContainer = document.createElement('div');
-
     // Render HTML string and assign it to the container's innerHTML
-    shimmerContainer.innerHTML = shimmerWidget.render(`
-        <div class="${style} shimmer-shape"></div>
+    return shimmerWidget.render(`
+        <div class="${style} shimmer-shape">
+        ${inner}
+        </div>
     `);
-
-    // Return the first child of the container, which is the actual shimmer shape node
-    return shimmerContainer.firstElementChild;
 }
 

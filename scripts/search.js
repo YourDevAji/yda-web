@@ -92,6 +92,10 @@ async function handleCategoryInput(inputValue) {
         resetTypeSelection();
         return;
     }
+    if(selectedCategory != null && inputValue != selectedCategory['category_identity']){
+        selectedCategory = null;
+        enableSearchButtonIfReady();
+    }
     await fetchAndDisplayResults({
         inputValue,
         fetchFunction: fetchCategories,
@@ -111,6 +115,10 @@ async function handleTypeInput(inputValue) {
     ? (value) => fetchTypesByCategory(value, selectedCategory.category_id)
     : fetchAllTypes;
 
+    if(selectedType != null && inputValue != selectedType['type_identity']){
+        selectedType = null;
+        enableSearchButtonIfReady();
+    }
     await fetchAndDisplayResults({
         inputValue,
         fetchFunction,

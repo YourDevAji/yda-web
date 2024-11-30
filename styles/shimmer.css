@@ -1,0 +1,65 @@
+.shimmer-shape::before{
+    background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(83, 83, 83, 0.63) 50%,
+    rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.royalties-shimmer{
+    min-height: 45vh;
+    border: 1px solid #f0f0f0;
+    background-color: #101010a6;
+    flex: 1;
+}
+
+
+.royalties-shimmer-overlay{
+    min-height: 45vh;
+    position: relative;
+    flex: 1;
+}
+
+
+.royalties-shimmer-popular{
+    position: absolute;
+    border-radius: 8px;
+    top: -20px;
+    left: 0px;
+    right: 0px;
+    border: 2px solid #f0f0f0;
+    bottom: -20px;
+    background-color: #101010a6;
+}
+
+@media (max-width: 800px){
+    .royalties-shimmer{
+        border-radius: 8px;
+    }
+}
+@media (min-width: 800px) and (max-width: 1920px){
+
+    .royalties-shimmer{
+        min-height: 50vh;
+        border-radius: 0px;
+    }
+
+    .royalties-shimmer-overlay{
+        min-height: 50vh;
+
+    }
+
+    .royalties-shimmer:first-child{
+        border-start-start-radius: 8px;
+        border-end-start-radius: 8px;
+    }
+
+    .royalties-shimmer:last-child{
+        border-start-end-radius: 8px;
+        border-end-end-radius: 8px;
+    }
+
+
+
+}

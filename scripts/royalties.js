@@ -1,11 +1,30 @@
 import { nonPouplarCard } from '/components/non-popular-pricing-builder/script.js';
 import { pouplarCard } from '/components/popular-pricing-builder/script.js';
+import { shimmerShape } from '/components/shimmer-builder/script.js';
 import supabaseClient from '/scripts/supabaseClient.js';
 
 async function loadCardContainer() {
     const container = document.getElementById('royalties-viewer-container'); // Main container
 
     try {
+        // Load shimmers
+        for(let i =0; i<4;i++){
+            const boxShimmer = shimmerShape('royalties-shimmer');
+
+            if (i !== 1 || window.innerWidth < 800) {
+                container.appendChild(boxShimmer);
+            } else {
+                boxShimmer.classList.remove('royalties-shimmer');
+                boxShimmer.classList.add('royalties-shimmer-overlay');
+                const popular = document.createElement('div');
+                popular.classList.add('royalties-shimmer-popular');
+                popular.classList.add('royalties-shimmer');
+                boxShimmer.appendChild(popular);
+                console.log(boxShimmer);
+                container.appendChild(boxShimmer);
+            }
+        }
+
         // Fetch all pricing plans from the 'pricing_table'
         const { data: pricing, error } = await supabaseClient
             .from('pricing_table')
@@ -16,6 +35,8 @@ async function loadCardContainer() {
             console.error("Error fetching pricing plans:", error);
             return;
         }
+
+        container.innerHTML = '';
 
         // Use a for...of loop to handle asynchronous calls properly
         for (const plan of pricing) {

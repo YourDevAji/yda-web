@@ -3,7 +3,7 @@ import { pouplarCard } from '/components/popular-pricing-builder/script.js';
 import supabaseClient from '/scripts/supabaseClient.js';
 
 async function loadCardContainer() {
-    const container = document.getElementById('prices-viewer-container'); // Main container
+    const container = document.getElementById('royalties-viewer-container'); // Main container
 
     try {
         // Fetch all pricing plans from the 'pricing_table'
@@ -22,7 +22,7 @@ async function loadCardContainer() {
             const param = {
                 title: plan.pricing_title || "N/A",
                 description: plan.pricing_description || "Best for businesses of this level.",
-                buttonText: plan["pricing_is _popular"] ? "Popular Plan" : "Choose plan", // Differentiates popular plans
+                buttonText: plan["pricing_is_popular"] ? "Popular Plan" : "Choose plan", // Differentiates popular plans
                 price: `$${plan.pricing_price || "0"}`,
                 period: "/month",
                 inclusionTitle: "Plan includes:",
@@ -38,7 +38,7 @@ async function loadCardContainer() {
 
             // Create and append card to the container
             const cardElement = document.createElement('div');
-            cardElement.classList.add('prices-viewer-item');
+            cardElement.classList.add('royalties-viewer-item');
             cardElement.innerHTML = card;
             container.appendChild(cardElement);
         }

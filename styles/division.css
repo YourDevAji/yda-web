@@ -670,8 +670,8 @@ pre {
     visibility: hidden;
 }
 
-/* Prices Page*/
-.prices-first-section{
+/* royalties Page*/
+.royalties-first-section{
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 150px;
@@ -681,28 +681,28 @@ pre {
     flex-grow: 1;
 }
 
-.prices-first-header{
+.royalties-first-header{
     color: white;
     font-size: 34px;
     font-weight: bold;
     text-align: center;
 }
 
-.prices-first-description{
+.royalties-first-description{
     color: white;
     font-size: 16px;
     margin-top: 15px;
     text-align: center;
 }
 
-.prices-viewer-container{
+.royalties-viewer-container{
     display: flex;
     margin-top: 70px;
     width: 100%;
     align-items: stretch;
 }
 
-.prices-viewer-item{
+.royalties-viewer-item{
     display: flex;
     flex: 1;
     min-height: 35vh;
@@ -715,21 +715,21 @@ pre {
     border-left: 0.5px solid white;
 }
 
-.prices-viewer-item:first-child{
+.royalties-viewer-item:first-child{
     border-left: 1px solid white;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     border-radius: 8px  0px  0px 8px;
 }
 
-.prices-viewer-item:last-child{
+.royalties-viewer-item:last-child{
     border-right: 1px solid white;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     border-radius: 0px  8px  8px 0px;
 }
 
-.prices-popular{
+.royalties-popular{
     border: 1.5px solid white;
     min-height:40vh;
     padding: 16px;
@@ -742,7 +742,7 @@ pre {
     border-radius: 8px;
 }
 
-.prices-popular .pricing-button{
+.royalties-popular .pricing-button{
     margin-top: 36px;
 }
 
@@ -1073,7 +1073,7 @@ pre {
 
 /* Tablet View */
 @media (min-width: 500px) and (max-width: 800px){
-    .prices-viewer-container{
+    .royalties-viewer-container{
         display: grid;
         grid-template-columns: 1fr 1fr; /* Two-column layout for mobile */
         margin-top: 40px;
@@ -1081,19 +1081,19 @@ pre {
         gap: 20px;
     }
 
-    .prices-viewer-item{
+    .royalties-viewer-item{
         border-radius: 8px;
     }
 
-    .prices-viewer-item:first-child{
+    .royalties-viewer-item:first-child{
         border-radius: 8px;
     }
 
-    .prices-viewer-item:last-child{
+    .royalties-viewer-item:last-child{
         border-radius: 8px;
     }
 
-    .prices-popular{
+    .royalties-popular{
         display: none;
     }
 
@@ -1163,7 +1163,7 @@ pre {
 
 /* Mobile View */
 @media  (max-width: 500px){
-    .prices-viewer-container{
+    .royalties-viewer-container{
         display: flex;
         margin-top: 40px;
         flex-direction: column;
@@ -1171,19 +1171,19 @@ pre {
         gap: 20px;
     }
 
-    .prices-viewer-item{
+    .royalties-viewer-item{
         border-radius: 8px;
     }
 
-    .prices-viewer-item:first-child{
+    .royalties-viewer-item:first-child{
         border-radius: 8px;
     }
 
-    .prices-viewer-item:last-child{
+    .royalties-viewer-item:last-child{
         border-radius: 8px;
     }
 
-    .prices-popular{
+    .royalties-popular{
         display: none;
     }
 }
@@ -1551,7 +1551,7 @@ pre {
         height: 60vh;
     }
 
-    .prices-first-section{
+    .royalties-first-section{
         margin-left: 5%;
         margin-right: 5%;
         margin-top: 90px;
@@ -1562,12 +1562,12 @@ pre {
         flex-grow: 1;
     }
 
-    .prices-first-header{
+    .royalties-first-header{
         font-size: 24px;
         text-align: center;
     }
 
-    .prices-first-description{
+    .royalties-first-description{
         text-align: center;
         font-size: 14px;
     }

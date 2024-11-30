@@ -5,6 +5,6 @@ const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 
 const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 
-console.log("Created");
+//console.log("Created");
 
 export default supabaseClient;

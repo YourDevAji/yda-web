@@ -4,6 +4,10 @@ import supabaseClient from '/scripts/supabaseClient.js';
 const categoryInput = document.getElementById('left-search');
 const typeInput = document.getElementById('middle-search');
 const searchButton = document.getElementById('search-button');
+const searchContainer = document.getElementById('search-container');
+const searchOverlay = document.getElementById('search-modal-overlay');
+const categorySearchClear = document.getElementById('left-search-clear');
+const typeSearchClear = document.getElementById('middle-search-clear');
 
 let selectedCategory = null;
 let selectedType = null;
@@ -12,19 +16,71 @@ let selectedType = null;
 categoryInput.addEventListener('input', (event) => handleCategoryInput(event.target.value));
 typeInput.addEventListener('input', (event) => handleTypeInput(event.target.value));
 categoryInput.addEventListener('focus', () => handleCategoryFocusChange(true));
+categoryInput.addEventListener('blur', () => handleCategoryFocusChange(false));
 typeInput.addEventListener('focus', () => handleTypeFocusChange(true));
+typeInput.addEventListener('blur', () => handleTypeFocusChange(false));
+searchOverlay.addEventListener('click', () => handleOutsideTap());
+categorySearchClear.addEventListener('click', () => handleCategoryClear());
+typeSearchClear.addEventListener('click', () => handleTypeClear());
+
+
+function handleCategoryClear(){
+    typeInput.value = '';
+    selectedCategory = null;
+    selectedType = null;
+    if(categoryInput.value.length === 0){
+        clearContainer('.left-content', '.left-search-entry');
+        controlSearchClear(categorySearchClear,false);
+    }else{
+        categoryInput.value = '';
+        categoryInput.focus();
+    }
+    enableSearchButtonIfReady();
+}
+
+function handleTypeClear(){
+    selectedType = null;
+    if(typeInput.value.length === 0){
+        clearContainer('.middle-content', '.middle-search-entry');
+        controlSearchClear(typeSearchClear,false);
+    }else{
+        typeInput.value = '';
+        typeInput.focus();
+    }
+    enableSearchButtonIfReady();
+}
+
+function handleOutsideTap(){
+    clearContainer('.middle-content', '.middle-search-entry');
+    clearContainer('.left-content', '.left-search-entry');
+    controlSearchClear(categorySearchClear,false);
+    controlSearchClear(typeSearchClear,false);
+    enableSearchButtonIfReady();
+}
 
 const handleCategoryFocusChange = (isFocused) => {
     if (isFocused) {
-        clearContainer('.middle-content', '.middle-search');
-        handleCategoryInput('%');
+        clearContainer('.middle-content', '.middle-search-entry');
+        controlSearchClear(categorySearchClear,true);
+        controlSearchClear(typeSearchClear,false);
+        if(categoryInput.value.length === 0){
+            handleCategoryInput('%');
+        }else{
+            handleCategoryInput(categoryInput.value);
+        }
     }
 };
 
 const handleTypeFocusChange = (isFocused) => {
     if (isFocused) {
-        clearContainer('.left-content', '.left-search');
-        handleTypeInput('%');
+        clearContainer('.left-content', '.left-search-entry');
+        controlSearchClear(typeSearchClear,true);
+        controlSearchClear(categorySearchClear,false);
+        if(typeInput.value.length === 0){
+            handleTypeInput('%');
+        }else{
+            handleTypeInput(typeInput.value);
+        }
     }
 };
 
@@ -40,7 +96,7 @@ async function handleCategoryInput(inputValue) {
         inputValue,
         fetchFunction: fetchCategories,
         resultContainer: '.left-content',
-        stylingClass: '.left-search',
+        stylingClass: '.left-search-entry',
         onSelect: handleCategorySelection,
     });
 }
@@ -59,7 +115,7 @@ async function handleTypeInput(inputValue) {
         inputValue,
         fetchFunction,
         resultContainer: '.middle-content',
-        stylingClass: '.middle-search',
+        stylingClass: '.middle-search-entry',
         onSelect: handleTypeSelection,
     });
 }
@@ -73,14 +129,14 @@ function isInputEmpty(value) {
 function resetCategorySelection() {
     selectedCategory = null;
     typeInput.value = '';
-    clearContainer('.left-content', '.left-search');
+    clearContainer('.left-content', '.left-search-entry');
     disableSearchButton();
 }
 
 // Resets the selected type
 function resetTypeSelection() {
     selectedType = null;
-    clearContainer('.middle-content', '.middle-search');
+    clearContainer('.middle-content', '.middle-search-entry');
     disableSearchButton();
 }
 
@@ -107,6 +163,28 @@ async function fetchAllTypes(inputValue) {
         .from('type_table')
         .select('*,category_table(*)')
         .ilike('type_identity', `%${inputValue}%`);
+}
+
+//Control Overlay Visilibity
+function controlSearchClear(container,show){
+    if(show){
+        container.style.display = "flex";
+    }else{
+        container.style.display = "none";
+    }
+}
+
+//Control Overlay Visilibity
+function controlSearchOverlay(show){
+    if(show){
+        searchOverlay.style.display = "block";
+        searchOverlay.style.zIndex = 1001;
+        searchContainer.style.zIndex = 2000;
+    }else{
+        searchOverlay.style.display = "none";
+        searchOverlay.style.zIndex = 1;
+        searchContainer.style.zIndex = 1;
+    }
 }
 
 // Displays results and manages the loading state
@@ -139,6 +217,7 @@ function populateResults(containerSelector, data, stylingClass, onSelect) {
     clearContainer(containerSelector, stylingClass);
     applyContainerStyling(stylingClass, true);
 
+    controlSearchOverlay(true);
     data.forEach((item) => {
         const resultDiv = document.createElement('div');
         resultDiv.classList.add('search-popup-result');
@@ -155,8 +234,9 @@ function populateResults(containerSelector, data, stylingClass, onSelect) {
 function handleCategorySelection(category) {
     categoryInput.value = category['category_identity'];
     selectedCategory = category;
-    resetTypeSelection();
-    clearContainer('.left-content', '.left-search');
+
+    clearContainer('.left-content', '.left-search-entry');
+    controlSearchClear(categorySearchClear,false);
     enableSearchButtonIfReady();
 }
 
@@ -164,11 +244,14 @@ function handleCategorySelection(category) {
 function handleTypeSelection(type) {
     typeInput.value = type['type_identity'];
     selectedType = type;
-
     if (!selectedCategory && type['category_table']) {
-        handleCategorySelection(type['category_table']);
+        selectedCategory = type['category_table'];
+        categoryInput.value  = selectedCategory['category_identity'];
+        clearContainer('.left-content', '.left-search-entry');
+        controlSearchClear(categorySearchClear,false);
     }
-    clearContainer('.middle-content', '.middle-search');
+    clearContainer('.middle-content', '.middle-search-entry');
+    controlSearchClear(typeSearchClear,false);
     enableSearchButtonIfReady();
 }
 
@@ -194,17 +277,20 @@ function showLoadingIndicator(containerSelector, stylingClass) {
 
     container.classList.add('visible');
     container.classList.remove('hidden');
+    controlSearchOverlay(true);
 }
 
 // Hides the loading indicator
 function hideLoadingIndicator(containerSelector, stylingClass) {
     applyContainerStyling(stylingClass, false);
+    controlSearchOverlay(false);
 }
 
 // Clears the container and removes styling
 function clearContainer(containerSelector, stylingClass) {
     const container = document.querySelector(containerSelector);
     applyContainerStyling(stylingClass, false);
+    controlSearchOverlay(false);
     container.classList.add('hidden');
     container.classList.remove('visible');
     container.innerHTML = '';
@@ -212,11 +298,14 @@ function clearContainer(containerSelector, stylingClass) {
 
 // Applies or removes styling to a container
 function applyContainerStyling(stylingClass, isPopulated) {
-    const element = document.querySelector(stylingClass);
-    element.classList.toggle('populate-content-border', isPopulated);
-    element.classList.toggle('no-content-border', !isPopulated);
+    const elements = document.querySelectorAll(stylingClass); // Select all matching elements
+    elements.forEach(element => { // Iterate over each element
+        element.classList.toggle('populate-content-border', isPopulated); // Toggle class based on `isPopulated`
+        element.classList.toggle('no-content-border', !isPopulated); // Toggle the opposite class
+    });
 }
 
+
 export async function startSearch(params) {
-    console.log('Starting search with params:', params);
+    //    console.log('Starting search with params:', params);
 }

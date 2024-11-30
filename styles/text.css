@@ -89,6 +89,18 @@
         margin-top: 8px;
     }
 
+    .offers-first-title{
+        margin: 0px;
+        font-size: 24px;
+        text-align:center;
+    }
+    .offers-first-description{
+        margin: 0px;
+        margin-top: 8px;
+        font-size: 14px;
+        text-align:center;
+    }
+
 }
 
 @media (min-width: 800px) and (max-width: 1920px){

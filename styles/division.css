@@ -675,6 +675,7 @@ pre {
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 150px;
+    margin-bottom: 150px;
     flex-direction: column;
     align-items:center;
     display: flex;

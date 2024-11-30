@@ -4,52 +4,52 @@ import HtmlWidget  from '/components/html-widget.js';
 ////// Add stylesheet dynamically
 ////const link = document.createElement("link");
 ////link.rel = "stylesheet";
-////link.href = "/components/footer-builder/style.css";
+////link.href = "/components/header-builder/style.css";
 ////link.type = "text/css";
 ////document.head.appendChild(link);
 //
 
 // Initialize HtmlWidget
-const footerWidget = new HtmlWidget();
+const headerWidget = new HtmlWidget();
 
-// Define footer element IDs and track processed footers
-const footerElements = ['home-footer', 'offers-footer', 'royalties-footer', 'why-us-footer', ];
-const processedfooters = new Set(); // Use a Set for faster lookups
+// Define header element IDs and track processed headers
+const headerElements = ['home-header', 'offers-header', 'royalties-header', 'why-us-header', ];
+const processedHeaders = new Set(); // Use a Set for faster lookups
 
-// Function to render and append footers
-async function appendfooters() {
+// Function to render and append headers
+async function appendHeaders() {
     try {
-        // Retrieve the cached rendered footer from sessionStorage
-        let renderedFooter = sessionStorage.getItem('footer-builder');
+        // Retrieve the cached rendered header from sessionStorage
+        let renderedHeader = sessionStorage.getItem('header-builder');
 
-        // If not cached, render the footer and cache it
-        if (!renderedFooter) {
-            renderedFooter = await footerWidget.renderFromFile('/components/footer-builder/index.html', {});
-            if (renderedFooter) {
-                sessionStorage.setItem('footer-builder', renderedFooter);
+        // If not cached, render the header and cache it
+        if (!renderedHeader) {
+            renderedHeader = await headerWidget.renderFromFile('/components/header-builder/index.html', {});
+            if (renderedHeader) {
+                sessionStorage.setItem('header-builder', renderedHeader);
             } else {
-                console.error("Failed to render footer content.");
+                console.error("Failed to render header content.");
                 return;
             }
         }
 
-        // Append the rendered footer to all specified elements
-        for (const footerId of footerElements) {
-            if (!processedfooters.has(footerId)) {
-                const footerElement = document.getElementById(footerId);
+        // Append the rendered header to all specified elements
+        for (const headerId of headerElements) {
+            if (!processedHeaders.has(headerId)) {
+                const headerElement = document.getElementById(headerId);
 
-                if (footerElement) {
-                    processedfooters.add(footerId); // Mark as processed
-                    footerElement.innerHTML = renderedFooter; // Insert content
+                if (headerElement) {
+                    processedHeaders.add(headerId); // Mark as processed
+                    headerElement.innerHTML = renderedHeader; // Insert content
                 } else {
-                    //                    console.warn(`footer element with ID "${footerId}" not found.`);
+                    //                    console.warn(`Header element with ID "${headerId}" not found.`);
                 }
             }
         }
     } catch (error) {
-        console.error("Error appending footers:", error);
+        console.error("Error appending headers:", error);
     }
 }
 
-// Call the function to append footers
-appendfooters();
+// Call the function to append headers
+appendHeaders();

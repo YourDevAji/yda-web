@@ -7,8 +7,8 @@ body{
 }
 
 
-input[type="text"],
-input[type="search"] {
+input[type="text"]:focus,
+input[type="search"]:focus {
     border: none; /* Removes the border */
     outline: none; /* Removes the focus outline */
 }

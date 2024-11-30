@@ -788,6 +788,84 @@ pre {
     padding-top: 12px;
 }
 
+.offers-first-section{
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    padding: 50px 30px 50px 30px;
+    color: white;
+    flex-direction: column;
+    margin-top: 150px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.offers-search-area{
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.offers-search-container{
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    max-width: 60%;
+    background-color: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.offers-search{
+    width: 100%;
+    min-height: 42px;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.offers-search::placeholder {
+    color: white;
+}
+
+.offers-search-clear{
+    padding: 0px 8px 0px 8px;
+    height: 100%;
+}
+
+.offers-search-icon{
+    padding: 0px 8px 0px 8px;
+    height: 100%;
+}
+
+.offers-content-container{
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-wrap: wrap; /* Allows wrapping to the next row */
+    gap: 10px; /* Optional: Space between items */
+}
+
+.offers-content-item{
+    flex: 1 1 calc(33.333% - 10px); /* Ensure 3 items per row, subtracting gap */
+    max-width: calc(33.333% - 10px); /* Max width of each item */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    min-height: 35vh; /* Set the desired height */
+    border-radius: 8px;
+    border: 1px solid #ffffff; /* Optional: Add a border for clarity */
+    box-sizing: border-box; /* Includes padding/borders in width calculation */
+}
+
 
 @media (min-width: 800px) and (max-width: 1920px){
 
@@ -1143,6 +1221,11 @@ pre {
         display: none;
     }
 
+    .offers-content-item{
+        flex: 1 1 calc(50% - 10px); /* Ensure 3 items per row, subtracting gap */
+        max-width: calc(50% - 10px);
+    }
+
 }
 @media (min-width: 1070px) and (max-width: 1920px){
 
@@ -1231,6 +1314,34 @@ pre {
 
     .royalties-popular{
         display: none;
+    }
+
+    .offers-first-section{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 120px;
+    }
+
+    .offers-search-area{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .offers-search-container{
+        max-width: 100%;
+    }
+
+    .offers-content-item{
+        flex: 1 1 calc(100% - 10px); /* Ensure 3 items per row, subtracting gap */
+        max-width: calc(100% - 10px);
+        width: calc(100% - 10px);
+    }
+
+    .offers-content-container{
+        flex-direction: column;
+        align-items: center;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 }
 @media  (max-width: 800px){

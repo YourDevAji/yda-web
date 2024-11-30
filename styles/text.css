@@ -51,6 +51,18 @@
     margin-top: 8px;
 }
 
+.offers-first-title{
+    margin: 0px;
+    font-size: 34px;
+    text-align:center;
+}
+.offers-first-description{
+    margin: 0px;
+    margin-top: 8px;
+    font-size: 18px;
+    text-align:center;
+}
+
 @media (min-width: 0px) and (max-width: 800px){
 
 

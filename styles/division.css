@@ -835,26 +835,28 @@ pre {
 }
 
 .offers-search-clear{
-    padding: 0px 8px 0px 8px;
+    padding: 0px 12px 0px 10px;
     height: 100%;
+    display: none;
 }
 
 .offers-search-icon{
-    padding: 0px 8px 0px 8px;
+    padding: 0px 10px 0px 12px;
     height: 100%;
 }
 
 
 .offers-content-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
     margin: 50px 10%;
+    box-sizing: border-box;
 }
 
 .offers-content-item {
-    flex: 1 1 calc(25% - 20px); /* Adjust spacing for 4 items per row */
     max-width: 300px;
     display: flex;
     flex-direction: column;
@@ -1237,10 +1239,16 @@ pre {
         display: none;
     }
 
-    .offers-content-item{
-        flex: 1 1 calc(50% - 10px); /* Ensure 3 items per row, subtracting gap */
-        max-width: calc(50% - 10px);
+    .offers-search-container{
+        max-width: 80%;
     }
+
+    .offers-content-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    }
+
+
 
 }
 @media (min-width: 1070px) and (max-width: 1920px){
@@ -1348,7 +1356,7 @@ pre {
     }
 
     .offers-content-item{
-        flex: 1 1 calc(100% - 1%); /* Ensure 3 items per row, subtracting gap */
+        flex: 1 calc(100% - 1%); /* Ensure 3 items per row, subtracting gap */
         max-width: calc(100% - 1%);
         width: calc(100% - 1%);
         flex-direction: row;
@@ -1358,6 +1366,7 @@ pre {
     }
 
     .offers-content-container{
+        display: flex;
         flex-direction: column;
         align-items: center;
         margin-left: 5%;
@@ -1366,8 +1375,18 @@ pre {
 
     .offers-content-resource {
         aspect-ratio: 1 / 1;
-        width: 100px; /* Set the desired width */
+        /*        width: 100px; *//* Set the desired width */
     }
+
+
+    .offers-search-clear{
+        padding: 0px 10px 0px 18px;
+    }
+
+    .offers-search-icon{
+        padding: 0px 8px 0px 10px;
+    }
+
 }
 @media  (max-width: 800px){
 

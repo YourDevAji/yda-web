@@ -9,33 +9,31 @@ const offerSearchClear = document.getElementById('offers-search-clear');
 
 let cache = new Map(); // Cache for offers, keyed by type_id
 let displayed = 0;
+let debounceTimeout;
 let isLoading = false;
 let afterOffer = ''; // Tracks the last item for pagination
 let afterFilter = null; // Tracks the last item for pagination
+let beforeFilter = null; // Tracks the last item for pagination
 let currentFilter = ''; // Tracks current search input
 const BATCH_SIZE = 20;
 
 // Event listeners for input and focus/blur
 offerSearchInput.addEventListener('input', (event) => handleDebouncedInput(event.target.value));
-offerSearchInput.addEventListener('focus', () => handleCategoryFocusChange(true));
-offerSearchInput.addEventListener('blur', () => handleCategoryFocusChange(false));
 offerSearchClear.addEventListener('click', handleOfferClear);
 
-function handleCategoryFocusChange(isFocused) {
-}
+
 
 
 async function fetchOffers(requiredBatchSize = BATCH_SIZE) {
     if (isLoading || requiredBatchSize <= 0) return;
     isLoading = true;
     handleLoading(true);
-
     const { data: offers, error } = await supabaseClient
         .from('type_table')
         .select('*')
         .ilike('type_identity', `%${currentFilter}%`)
         .order('type_identity')
-        .gte('type_identity',  afterFilter || afterOffer)
+        .gte('type_identity',   afterOffer)
         .limit(requiredBatchSize);
 
     if (error) {
@@ -63,10 +61,11 @@ async function fetchOffers(requiredBatchSize = BATCH_SIZE) {
 }
 
 async function renderOffers(offers,fetch = false) {
-    if(!fetch){
-        afterOffer = (offers.length !== 0) ? offers[offers.length - 1].type_identity : '';}
-    else{
-        afterFilter = (offers.length !== 0) ? offers[offers.length - 1].type_identity : '';
+    if(offerSearchInput.value.length === 0 && beforeFilter != null){
+        afterOffer = beforeFilter ;
+        beforeFilter = null;
+    }else{
+        afterOffer = (offers.length !== 0) ? offers[offers.length - 1].type_identity : '';
     }
     let contentHtml = '';
     for (const offer of offers) {
@@ -108,7 +107,6 @@ function handleOfferClear() {
     offerSearchInput.value = '';
     offerSearchClear.style.display = 'none';
     currentFilter = '';
-    afterFilter = null;
     renderOffers([...cache.values()]);
 }
 
@@ -121,10 +119,9 @@ function displayError(message) {
 }
 
 // Debounce function for input handling
-let debounceTimeout;
 function handleDebouncedInput(value) {
-    if (value.length === 0){
-        afterFilter = null;
+    if(beforeFilter == null){
+        beforeFilter = afterOffer;
     }
     offerSearchClear.style.display = (value.length !== 0) ? 'block' : 'none';
 

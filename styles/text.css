@@ -63,6 +63,26 @@
     text-align:center;
 }
 
+.offers-content-details-title {
+    margin: 0;
+    font-size: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* Set to the desired number of lines */
+}
+
+.offers-content-details-description {
+    margin: 4px 0 0;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* Set to the desired number of lines */
+}
+
 @media (min-width: 0px) and (max-width: 800px){
 
 
@@ -99,6 +119,24 @@
         margin-top: 8px;
         font-size: 14px;
         text-align:center;
+    }
+
+    .offers-content-details-title {
+        font-size: 18px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1; /* Set to the desired number of lines */
+    }
+
+    .offers-content-details-description {
+        font-size: 12px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 4; /* Set to the desired number of lines */
     }
 
 }

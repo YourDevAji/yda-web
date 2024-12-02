@@ -17,6 +17,6 @@ export function shimmerShape(style,inner = '') {
         <div class="${style} shimmer-shape">
         ${inner}
         </div>
-    `);
+    `).element;
 }
 

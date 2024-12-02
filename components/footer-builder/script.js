@@ -16,7 +16,7 @@ async function appendfooters() {
 
         // If not cached, render the footer and cache it
         if (!renderedFooter) {
-            renderedFooter = await footerWidget.renderFromFile('/components/footer-builder/index.html', {});
+            renderedFooter = (await footerWidget.renderFromFile('/components/footer-builder/index.html', {})).element;
             if (renderedFooter) {
                 sessionStorage.setItem('footer-builder', renderedFooter);
             } else {

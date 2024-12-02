@@ -64,14 +64,12 @@ async function loadDeveloperData(){
 }
 
 async function loadStatistics(){
-    let shimmerHtml = '';
     const container = document.getElementById('web-dev-stat'); // Main container
 
     // Load shimmers
     for(let i =0; i<4;i++){
         const boxShimmer = shimmerShape('web-stat-shimmer');
-        shimmerHtml += boxShimmer;
-        container.innerHTML = shimmerHtml;
+        container.appendChild(boxShimmer);
     }
 
     // Fetch developer data from the 'project_table'
@@ -83,8 +81,7 @@ async function loadStatistics(){
         return;
     }
 
-
-    let statsHmtl = '';
+    const fragment = document.createDocumentFragment();
     for (const stat of stats) {
         const param = {
             title: stat.title,
@@ -92,10 +89,11 @@ async function loadStatistics(){
             type: stat.type
         };
         const card = await statViewer(param);
-        statsHmtl += card;
+        fragment.appendChild(card);
     }
 
-    container.innerHTML = statsHmtl;
+    container.innerHTML = '';
+    container.appendChild(fragment);
 
 }
 
@@ -103,9 +101,9 @@ async function handleIntroduction2Loading(data,loading){
     if(loading){
         //        handle when loading
     }else{
-        const container = document.getElementById('web-intro-2'); // Main container
+        const container = document.getElementById('web-intro-builder'); // Main container
         const viewer = await introductionViewer(data);
-        container.innerHTML = viewer;
+        container.appendChild(viewer);
     }
 }
 
@@ -114,21 +112,19 @@ async function handleSkillsLoading(data,loading){
     if(loading){
         //        handle when loading
     }else{
-        const container = document.getElementById('web-skills-content'); // Main container
+        const container = document.getElementById('web-skills-container'); // Main container
         const viewer = await skillViewer(data);
-        container.innerHTML = viewer;
+        container.appendChild(viewer);
     }
 }
 
 async function handleLatestProjects(){
-    let shimmerHtml = '';
     const container = document.getElementById('latest-project-list'); // Main container
 
     // Load shimmers
     for(let i =0; i<3;i++){
         const boxShimmer = shimmerShape('latest-project-shimmer');
-        shimmerHtml += boxShimmer;
-        container.innerHTML = shimmerHtml;
+        container.appendChild(boxShimmer);
     }
 
     // Fetch latest projects from the 'project_table'
@@ -143,7 +139,7 @@ async function handleLatestProjects(){
         return;
     }
 
-    let projectHmtl = '';
+    const fragment = document.createDocumentFragment();
     for (const project of projects) {
         const param = {
             projectSrc: `images/${project.project_title.toLowerCase()}.png`, // Placeholder image path
@@ -158,10 +154,12 @@ async function handleLatestProjects(){
         };
 
         const card = await projectCard(param);
-        projectHmtl += card;
+        fragment.appendChild(card);
     }
 
-    container.innerHTML = projectHmtl;
+    container.innerHTML = '';
+    container.appendChild(fragment);
+
 }
 
 

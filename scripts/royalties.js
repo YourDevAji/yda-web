@@ -3,7 +3,6 @@ import { shimmerShape } from '/components/shimmer-builder/script.js';
 import supabaseClient from '/scripts/supabaseClient.js';
 
 async function loadCardContainer() {
-    let shimmerHtml = '';
     const container = document.getElementById('royalties-viewer-container'); // Main container
 
     try {
@@ -12,15 +11,14 @@ async function loadCardContainer() {
 
             if (i !== 1 || window.innerWidth < 800) {
                 const boxShimmer = shimmerShape('royalties-shimmer');
-                shimmerHtml += boxShimmer;
+                container.appendChild(boxShimmer);
             } else {
                 const popular = document.createElement('div');
                 popular.classList.add('royalties-shimmer-popular');
                 popular.classList.add('royalties-shimmer');
                 const boxShimmer = shimmerShape('royalties-shimmer-overlay',popular.outerHTML);
-                shimmerHtml += boxShimmer;
+                container.appendChild(boxShimmer);
             }
-            container.innerHTML = shimmerHtml;
         }
 
         // Fetch all pricing plans from the 'pricing_table'
@@ -34,7 +32,7 @@ async function loadCardContainer() {
             return;
         }
 
-        let royaltiesHtml = '';
+        const fragment = document.createDocumentFragment();
 
         // Use a for...of loop to handle asynchronous calls properly
         for (const plan of pricing) {
@@ -50,9 +48,11 @@ async function loadCardContainer() {
             };
 
             let card = await pouplarCard(param); // Generate a popular card
-            royaltiesHtml += card;
+            fragment.appendChild(card);
         }
-        container.innerHTML = royaltiesHtml;
+
+        container.innerHTML = '';
+        container.appendChild(fragment);
 
     } catch (error) {
         console.error("Error processing pricing plans:", error);

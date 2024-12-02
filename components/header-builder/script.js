@@ -24,7 +24,8 @@ async function appendHeaders() {
 
         // If not cached, render the header and cache it
         if (!renderedHeader) {
-            renderedHeader = (await headerWidget.renderFromFile('/components/header-builder/index.html', {})).element;
+            const headerDOM = await headerWidget.renderFromFile('/components/header-builder/index.html', {});
+            renderedHeader = headerDOM.element.outerHTML;
             if (renderedHeader) {
                 sessionStorage.setItem('header-builder', renderedHeader);
             } else {

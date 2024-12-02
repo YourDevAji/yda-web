@@ -61,22 +61,26 @@ async function fetchOffers(requiredBatchSize = BATCH_SIZE) {
 }
 
 async function renderOffers(offers,fetch = false) {
+
     if(offerSearchInput.value.length === 0 && beforeFilter != null){
         afterOffer = beforeFilter ;
         beforeFilter = null;
     }else{
         afterOffer = (offers.length !== 0) ? offers[offers.length - 1].type_identity : '';
     }
-    let contentHtml = '';
+    const fragment = document.createDocumentFragment();
+
     for (const offer of offers) {
         const param = {
             title: offer.type_identity,
-            description: offer.type_description || 'Sample description content for layout testing.'
+            description: offer.type_description || 'Sample description content for the layout testing.'
         };
         const view = await offerViewer(param);
-        contentHtml += view;
+        fragment.appendChild(view);
     }
-    container.innerHTML = contentHtml;
+
+    container.innerHTML = '';
+    container.appendChild(fragment);
 
     // Infinite scroll control based on visible items
     const visibleOffers = container.children.length;

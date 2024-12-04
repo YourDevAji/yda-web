@@ -83,6 +83,63 @@
     -webkit-line-clamp: 2; /* Set to the desired number of lines */
 }
 
+.get-started-login-title{
+    color: white;
+    margin: 0px;
+    font-size: 32px;
+    margin-top: 50px;
+}
+
+.get-started-login-description{
+    color: white;
+    margin: 0px;
+    font-size: 18px;
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.get-started-login-box-title-text{
+    color: white;
+    margin: 0px;
+}
+
+.get-started-login-warner{
+    color: white;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.get-started-action{
+    color: white;
+    font-size: 16px;
+}
+
+.get-started-action button{
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 0px;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.terms-privacy-text {
+    text-align: center;
+    font-size: 14px;
+    color: #8c8b8b;
+    margin-top: 50px;
+}
+
+.terms-privacy-text a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terms-privacy-text a:hover {
+    text-decoration: underline;
+}
+
 @media (min-width: 0px) and (max-width: 800px){
 
 

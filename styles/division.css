@@ -886,6 +886,146 @@ pre {
 }
 
 
+
+.get-started-container{
+    height: calc(100vh - 82px);
+    display: flex;
+    box-sizing: border-box;
+}
+
+.get-started-left{
+    height: 100%;
+    width: 40%;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    display: flex;
+    border-right: 0.5px solid #706e6e;
+}
+
+.get-started-left-content{
+    height: 100%;
+    width: 100%;
+}
+
+.get-started-right{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.remove-top-margin{
+    margin-top: -50px;
+}
+
+.get-started-login{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.get-started-login-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.get-started-email{
+    padding: 8px 8px 8px 8px;
+    color: white;
+    font-size: 16px;
+    margin-top: 8px;
+    border: 1px solid #535252;
+    background-color: #202020;
+    border-radius: 8px;
+}
+
+.get-started-password{
+    padding: 8px 8px 8px 8px;
+    color: white;
+    margin-top: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #535252;
+    background-color: #202020;
+    border-radius: 8px;
+}
+
+.get-started-login-box-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.get-stared-email-box{
+    margin-top: 50px;
+}
+
+.get-stared-password-box{
+    margin-top: 24px;
+}
+
+
+.get-started-no-warner{
+    display: none;
+}
+
+
+.get-started-action-wrapper{
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+/*Get started*/
+@media (max-width: 1279px){
+
+    .get-started-container{
+        height: auto;
+    }
+    .get-started-left{
+        min-height: 100%;
+        width: 100%;
+        padding-left: 15vw;
+        padding-right: 15vw;
+        justify-content: center;
+        border: none;
+    }
+
+    .get-started-left-content{
+        max-width: 100%;
+        height: auto;
+    }
+
+    .get-started-right{
+        display: none;
+    }
+
+    .remove-top-margin{
+        margin-top: 0px;
+    }
+}
+
+
+@media (min-width: 401px) and (max-width: 1279px) {
+    .get-started-left-content{
+        max-width: 40vh;
+    }
+}
+
+@media (max-width: 400px){
+
+    .get-started-left{
+        height: 100%;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+    .get-started-left-content{
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 @media (min-width: 800px) and (max-width: 1920px){
 
 

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <title>Get Started</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+    <link href="/styles/icons.css" rel="stylesheet">
+    <link href="/styles/text.css" rel="stylesheet">
+    <link href="/styles/body.css" rel="stylesheet">
+    <link href="/styles/button.css" rel="stylesheet">
+    <link href="/styles/division.css" rel="stylesheet">
+    <link href="/styles/image.css" rel="stylesheet">
+    <link href="/styles/arrow.css" rel="stylesheet">
+    <link href="/styles/shimmer.css" rel="stylesheet">
+    <link href="/images/fav-icon.png" rel="icon">
+
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-widget@1.6.1"></script>
+    <script defer src="/scripts/get-started.js" type="module"></script>
+    <script defer src="/components/header-builder/script.js" type="module"></script>
+    <script defer src="/components/footer-builder/script.js" type="module"></script>
+
+
+</head>
+<body>
+
+
+<!--Website Header-->
+<div id="get-started-header"></div>
+
+<div class="get-started-container">
+
+    <div class="get-started-left">
+        <div class="get-started-left-content">
+
+            <div class="get-started-login">
+
+                <h3 class="get-started-login-title">Welcome back</h3>
+                <h3 class="get-started-login-description">Sign in into account</h3>
+
+                <button class="get-started-login-button developer-button">
+                    <input class="developer-radio-button" id="developer-radio-button" name="developer"
+                           type="radio"/>
+                    <label class="button-content" for="developer-radio-button">
+                        <svg fill="none" height="21" viewBox="0 0 18 21" width="18"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.6 14.6L8 13.15L5.85 11L8 8.85L6.6 7.4L3 11L6.6 14.6ZM11.4 14.6L15 11L11.4 7.4L10 8.85L12.15 11L10 13.15L11.4 14.6ZM2 20C1.45 20 0.979333 19.8043 0.588 19.413C0.196667 19.0217 0.000666667 18.5507 0 18V4C0 3.45 0.196 2.97933 0.588 2.588C0.98 2.19667 1.45067 2.00067 2 2H6.2C6.41667 1.4 6.77933 0.916667 7.288 0.55C7.79667 0.183333 8.36733 0 9 0C9.63267 0 10.2037 0.183333 10.713 0.55C11.2223 0.916667 11.5847 1.4 11.8 2H16C16.55 2 17.021 2.196 17.413 2.588C17.805 2.98 18.0007 3.45067 18 4V18C18 18.55 17.8043 19.021 17.413 19.413C17.0217 19.805 16.5507 20.0007 16 20H2ZM9 3.25C9.21667 3.25 9.396 3.179 9.538 3.037C9.68 2.895 9.75067 2.716 9.75 2.5C9.74933 2.284 9.67833 2.105 9.537 1.963C9.39567 1.821 9.21667 1.75 9 1.75C8.78333 1.75 8.60433 1.821 8.463 1.963C8.32167 2.105 8.25067 2.284 8.25 2.5C8.24933 2.716 8.32033 2.89533 8.463 3.038C8.60567 3.18067 8.78467 3.25133 9 3.25Z"
+                                  fill="white"></path>
+                        </svg>
+                        Developer
+                    </label>
+                </button>
+                <button class="get-started-login-button employer-button">
+                    <input class="employer-radio-button" id="employer-radio-button" name="developer"
+                           type="radio"/>
+                    <label class="button-content" for="employer-radio-button">
+                        <svg fill="none" height="21" viewBox="0 0 18 21"
+                             width="18" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 14.3684C4.0275 14.3684 0 16.3468 0 18.7895V21H18V18.7895C18 16.3468 13.9725 14.3684 9 14.3684ZM4.5 7.73684C4.5 8.90938 4.97411 10.0339 5.81802 10.863C6.66193 11.6921 7.80653 12.1579 9 12.1579C10.1935 12.1579 11.3381 11.6921 12.182 10.863C13.0259 10.0339 13.5 8.90938 13.5 7.73684M8.4375 0C8.1 0 7.875 0.232105 7.875 0.552632V3.86842H6.75V1.10526C6.75 1.10526 4.21875 2.05579 4.21875 5.25C4.21875 5.25 3.375 5.40474 3.375 6.63158H14.625C14.5687 5.40474 13.7812 5.25 13.7812 5.25C13.7812 2.05579 11.25 1.10526 11.25 1.10526V3.86842H10.125V0.552632C10.125 0.232105 9.91125 0 9.5625 0H8.4375Z"
+                                  fill="white"/>
+                        </svg>
+                        Employer
+                    </label>
+                </button>
+
+
+                <div class="get-started-login-box get-stared-email-box">
+                    <div class="get-started-login-box-title">
+                        <h5 class="get-started-login-box-title-text">Email</h5>
+                        <h5 class="get-started-login-box-title-text"></h5>
+                    </div>
+                    <input class="get-started-email" id="get-started-email" placeholder="name@yourdevaji.com"
+                           type="email">
+                    <label class="get-started-login-warner get-started-no-warner"
+                           for="get-started-email">Test</label>
+                </div>
+
+                <div class="get-started-login-box get-stared-password-box">
+                    <div class="get-started-login-box-title">
+                        <h5 class="get-started-login-box-title-text">Password</h5>
+                        <h5 class="get-started-login-box-title-text">Forgot password?</h5>
+                    </div>
+                    <input class="get-started-password" id="get-started-password" placeholder="••••••••"
+                           type="email">
+                    <label class="get-started-login-warner " for="get-started-password">Password is
+                        required</label>
+                </div>
+
+
+                <div class="get-started-login-click-wrapper">
+                    <button class="get-started-login-click">Sign In</button>
+                </div>
+
+
+                <div class="get-started-action-wrapper">
+                    <div class="get-started-action">Don't have an account?
+                        <button id="get-started-action">Sign Up Now</button>
+                    </div>
+                </div>
+
+                <div class="terms-privacy-text">
+                    By continuing, you agree to YourDevAji's
+                    <a class="terms-link" href="#" target="_blank">Terms of Service</a>
+                    and
+                    <a class="privacy-link" href="#" target="_blank">Privacy Policy</a>,
+                    and receive email updates regularly.
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="get-started-right">
+
+    </div>
+
+</div>
+
+<!--Website Footer-->
+<div class="remove-top-margin" id="get-started-footer"></div>
+
+</body>
+</html>

@@ -10,7 +10,7 @@
 const headerWidget = new HtmlWidget();
 
 // Define header element IDs and track processed headers
-const headerElements = ['home-header', 'offers-header', 'royalties-header', 'why-us-header', ];
+const headerElements = ['home-header', 'offers-header', 'royalties-header', 'why-us-header', 'get-started-header' ];
 const processedHeaders = new Set(); // Use a Set for faster lookups
 
 // Function to render and append headers

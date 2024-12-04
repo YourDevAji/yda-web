@@ -2,7 +2,7 @@
 const footerWidget = new HtmlWidget();
 
 // Define footer element IDs and track processed footers
-const footerElements = ['home-footer', 'offers-footer', 'royalties-footer', 'why-us-footer', ];
+const footerElements = ['home-footer', 'offers-footer', 'royalties-footer', 'why-us-footer','get-started-footer' ];
 const processedfooters = new Set(); // Use a Set for faster lookups
 
 // Function to render and append footers

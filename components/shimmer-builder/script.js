@@ -1,6 +1,3 @@
-import HtmlWidget from '/components/html-widget.js';
-
-
 // Add stylesheet dynamically
 const link = document.createElement("link");
 link.rel = "stylesheet";

@@ -1,6 +1,3 @@
-import HtmlWidget from '/components/html-widget.js';
-
-
 // Initialize HtmlWidget
 const skillWidget = new HtmlWidget();
 

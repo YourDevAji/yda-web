@@ -1,6 +1,3 @@
-// Import the HtmlWidget class
-import HtmlWidget  from '/components/html-widget.js';
-
 // Initialize HtmlWidget
 const footerWidget = new HtmlWidget();
 

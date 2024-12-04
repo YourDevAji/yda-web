@@ -1,0 +1,96 @@
+.shimmer-shape::before{
+    background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(83, 83, 83, 0.63) 50%,
+    rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.royalties-shimmer{
+    min-height: 45vh;
+    border: 1px solid #f0f0f0;
+    background-color: #101010a6;
+    flex: 1;
+}
+
+
+.royalties-shimmer-overlay{
+    min-height: 45vh;
+    position: relative;
+    flex: 1;
+}
+
+
+.royalties-shimmer-popular{
+    position: absolute;
+    border-radius: 8px;
+    top: -20px;
+    left: 0px;
+    right: 0px;
+    border: 2px solid #f0f0f0;
+    bottom: -20px;
+    background-color: #101010a6;
+}
+
+.latest-project-shimmer{
+    border-radius: 8px;
+    min-height: 40vh;
+    height: 40vh;
+    background-color: #131313;
+    overflow: hidden;
+}
+
+.web-stat-shimmer{
+    background-color: #ffffff64;
+    height: 15vh;
+    flex: 1;
+    overflow: hidden;
+}
+
+@media (max-width: 800px){
+    .royalties-shimmer{
+        border-radius: 8px;
+    }
+
+    .latest-project-shimmer{
+        border-radius: 8px;
+        height: 40vh;
+        min-height: 40vh;
+        background-color: #131313;
+        overflow: hidden;
+        width: 100%; /* Ensures items take full width */
+        max-width: 400px; /* Limiting max width for mobile */
+    }
+
+    .web-stat-shimmer{
+        width: 100%;
+        height: 15vh;
+    }
+
+}
+@media (min-width: 800px) and (max-width: 1920px){
+
+    .royalties-shimmer{
+        min-height: 50vh;
+        border-radius: 0px;
+    }
+
+    .royalties-shimmer-overlay{
+        min-height: 50vh;
+
+    }
+
+    .royalties-shimmer:first-child{
+        border-start-start-radius: 8px;
+        border-end-start-radius: 8px;
+    }
+
+    .royalties-shimmer:last-child{
+        border-start-end-radius: 8px;
+        border-end-end-radius: 8px;
+    }
+
+
+
+}

@@ -34,7 +34,7 @@ button: hover{
     width: 100%;
 }
 
-.developer-radio-button {
+.active-radio-button {
     position: absolute;
     left: 12px;
     width: 16px;
@@ -43,7 +43,7 @@ button: hover{
     cursor: pointer;
 }
 
-.employer-radio-button {
+.normal-radio-button {
     position: absolute;
     left: 12px;
     width: 16px;

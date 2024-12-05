@@ -13,6 +13,13 @@
 }
 
 
+.get-started-owner{
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 
 
 @media (min-width: 0px) and (max-width: 900px){

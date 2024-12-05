@@ -140,6 +140,21 @@
     text-decoration: underline;
 }
 
+.get-started-quote-header{
+    font-size: 160px;
+    color: #636262;
+    margin: 0px;
+}
+
+.get-started-quote-text{
+    margin: 0px;
+    color: white;
+}
+
+.get-started-owner-text{
+    color: white;
+}
+
 @media (min-width: 0px) and (max-width: 800px){
 
 

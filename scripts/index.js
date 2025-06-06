@@ -146,6 +146,7 @@ async function handleLatestProjects(){
             title: project.project_title,
             description: project.project_description,
             platformTitle: "Available Platforms",
+            canShowPlatforms: project.project_platforms.filter(p => p.link && p.link !== '#'),
             platforms: project.project_platforms.map(platform => ({
                 link: platform.link,
                 platformSrc: platform.platform === 'ios' ? 'images/app-store.png' : 'images/play-store.png',

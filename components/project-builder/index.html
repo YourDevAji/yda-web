@@ -5,9 +5,9 @@
     <div class="project-item-description-text">{{description}}</div>
 
     <div class="project-item-footer">
+        {{#if canShowPlatforms}}
         <div class="project-footer-title">Available Platforms</div>
         <div class="project-footer-platform">
-            {{#if platforms.length > 0}}
             {{#platforms}}
             {{#if link !== '#'}}
             <a href="{{link}}" target="_blank">
@@ -19,11 +19,10 @@
             </a>
             {{/if}}
             {{/platforms}}
-            {{#else}}
-            <span class="platform-coming-soon-text">Coming Soon</span>
-            {{/if}}
         </div>
+        {{#else}}
+        <span class="project-footer-title">Coming Soon</span>
+        {{/if}}
     </div>
 </div>
-
 

@@ -6,6 +6,10 @@ body{
     font-family: Roboto , Arial;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 
 input[type="text"]:focus,
 input[type="search"]:focus {

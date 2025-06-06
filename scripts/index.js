@@ -174,4 +174,23 @@ loadDeveloperData();
 loadStatistics();
 handleLatestProjects();
 
+window.addEventListener('load', () => {
+    const hash = window.location.hash;
+    if (hash) {
+        let attempts = 0;
+        const maxAttempts = 50;
+        const intervalId = setInterval(() => {
+            const el = document.querySelector(hash);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                clearInterval(intervalId);
+            } else if (++attempts >= maxAttempts) {
+                clearInterval(intervalId);
+            }
+        }, 100); // check every 100ms
+    }
+});
+
+
+
 

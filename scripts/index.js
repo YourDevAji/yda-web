@@ -143,6 +143,7 @@ async function handleLatestProjects(){
     for (const project of projects) {
         const param = {
             projectSrc: `images/${project.project_title.toLowerCase()}.png`, // Placeholder image path
+            id: `${project.project_title.toLowerCase()}-app`,
             title: project.project_title,
             description: project.project_description,
             platformTitle: "Available Platforms",

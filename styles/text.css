@@ -22,6 +22,14 @@
     color: white;
 }
 
+.platform-coming-soon-text {
+    font-style: italic;
+    color: #aaa;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+
 
 /*royalties Page*/
 .pricing-title{
